@@ -37,7 +37,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://fengleer.github.io"></form>
@@ -62,6 +62,63 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-使用树莓派做AVR芯片的下载器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/07/使用树莓派做AVR芯片的下载器/" class="article-date">
+  <time datetime="2017-05-07T11:06:22.000Z" itemprop="datePublished">2017-05-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/嵌入式/">嵌入式</a>►<a class="article-category-link" href="/categories/嵌入式/开发工具/">开发工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/07/使用树莓派做AVR芯片的下载器/">使用树莓派做AVR芯片的下载器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <ol>
+<li>安装avrdude</li>
+<li>更改配置文件，查找gpio将对应的linuxgpio中相关注释的内容删除<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">#This programmer bitbangs GPIO lines using the Linux sysfs GPIO interface</div><div class="line">#</div><div class="line">#To enable it set the configuration below to match the GPIO lines connected to the</div><div class="line">#relevant ISP header pins and uncomment the entry definition. In case you don&apos;t</div><div class="line">#have the required permissions to edit this system wide config file put the</div><div class="line">#entry in a separate &lt;your name&gt;.conf file and use it with -C+&lt;your name&gt;.conf</div><div class="line">#on the command line.</div><div class="line">#</div><div class="line">#To check if your avrdude build has support for the linuxgpio programmer compiled in,</div><div class="line">#use -c?type on the command line and look for linuxgpio in the list. If it&apos;s not available</div><div class="line">#you need pass the --enable-linuxgpio=yes option to configure and recompile avrdude.</div><div class="line">#</div><div class="line">programmer</div><div class="line">  id    = &quot;linuxgpio&quot;;</div><div class="line">  desc  = &quot;Use the Linux sysfs interface to bitbang GPIO lines&quot;;</div><div class="line">  type  = &quot;linuxgpio&quot;;</div><div class="line">  reset = 16;</div><div class="line">  sck   = 24;</div><div class="line">  mosi  = 23;</div><div class="line">  miso  = 18;</div><div class="line">;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>note:</strong>avrdude配置文件中的IO编号对应的芯片上的管脚编号BCM#，而不是树莓派提供的排针接口的编号</p>
+<ol>
+<li>使用avrdude下载程序时，选择下载器linuxgpio</li>
+<li>在使用过程中，常会遇到<code>Can&#39;t export GPIO 16, already exported/busy?: Device or resource busy</code>的错误，原因尚未搞清楚，可以用如下指令恢复<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo echo 16 &gt; /sys/class/gpio/unexport</div></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fengleer.github.io/2017/05/07/使用树莓派做AVR芯片的下载器/" data-id="cj2eli26g00047tcz6suq2wh4" class="article-share-link">Delen</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AVR/">AVR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
   
     <article id="post-JavaScript学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -89,7 +146,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="初始-JavaScript"><a href="#初始-JavaScript" class="headerlink" title="初始 JavaScript"></a>初始 JavaScript</h2><ul>
+        <h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><ul>
 <li><p>涉及到的函数</p>
 <ul>
 <li>alert()</li>
@@ -100,14 +157,6 @@
 <li><p>JavaScript 放置的位置<br>  JavaScript 代码可以放置到任何地方，但仍有通用的模式</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    ... load JavaScript libraries here ...</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    ... your JavaScript code typically goes at the end of body ...</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
 </li>
-<li><p>JavaScript 在同一文件中</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">function surprise() &#123;</div><div class="line">    alert(&quot;Hello!&quot;);</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>JavaScript 在其他文件中</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;mycode.s&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>  在 mycode.js :</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function surprise() &#123;</div><div class="line">    alert(&quot;Hello!&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
 </ul>
         
           <p class="article-more-link">
@@ -117,7 +166,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengleer.github.io/2017/05/06/JavaScript学习笔记/" data-id="cj2dasfie0001pg3nkzu564h3" class="article-share-link">分享</a>
+      <a data-url="http://fengleer.github.io/2017/05/06/JavaScript学习笔记/" data-id="cj2eli25n00017tcz42vr4rbg" class="article-share-link">Delen</a>
       
       
       
@@ -134,7 +183,7 @@
     <article id="post-HTML-CSS-学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/06/HTML-CSS-学习笔记/" class="article-date">
-  <time datetime="2017-05-06T09:54:08.000Z" itemprop="datePublished">2017-05-06</time>
+  <time datetime="2017-05-06T08:11:58.000Z" itemprop="datePublished">2017-05-06</time>
 </a>
     
   <div class="article-category">
@@ -157,7 +206,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="HTML-学习笔记"><a href="#HTML-学习笔记" class="headerlink" title="HTML 学习笔记"></a>HTML 学习笔记</h1><p>该笔记是对David Rossiter教授开设的 <em>HTML、CSS和JavaScript</em> 课程的学习记录。主要对其讲义进行翻译，记录。</p>
+        <h2 id="HTML-学习笔记"><a href="#HTML-学习笔记" class="headerlink" title="HTML 学习笔记"></a>HTML 学习笔记</h2><p>该笔记是对David Rossiter教授开设的 <em>HTML、CSS和JavaScript</em> 课程的学习记录。主要对其讲义进行翻译，记录。</p>
 <h2 id="初始html-Getting-to-know-html"><a href="#初始html-Getting-to-know-html" class="headerlink" title="初始html Getting to know html"></a>初始html Getting to know html</h2><ul>
 <li>涉及到的html元素<ul>
 <li>结构 <code>&lt;html&gt; &lt;head&gt; &lt;body&gt;</code></li>
@@ -166,7 +215,11 @@
 </ul>
 </li>
 <li>HTML的命令（commands）称为元素（elements）。元素通常由一个开始标签（tag)和一个结束标签组成。例如：<code>&lt;p&gt;...&lt;/p&gt;</code></li>
-<li>HTML页面结构<br>  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    ... header elements go here...</div><div class="line">    ... 这里添加头元素 ...</div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    ... the main web page content goes here ...</div><div class="line">    ... 正文内容 ...</div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<li><p>HTML页面结构<br></p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    ... header elements go here...</div><div class="line">    ... 这里添加头元素 ...</div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    ... the main web page content goes here ...</div><div class="line">    ... 正文内容 ...</div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>一个简单的网页</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>A Simple Web Page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"athor"</span> <span class="attr">content</span>=<span class="string">"David Rossiter"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>My Web Page<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>This web page is so awesom!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
         
@@ -177,61 +230,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengleer.github.io/2017/05/06/HTML-CSS-学习笔记/" data-id="cj2dasfi30000pg3n45akn795" class="article-share-link">分享</a>
+      <a data-url="http://fengleer.github.io/2017/05/06/HTML-CSS-学习笔记/" data-id="cj2eli25300007tcz8jluq7j1" class="article-share-link">Delen</a>
       
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/06/hello-world/" class="article-date">
-  <time datetime="2017-05-06T06:17:49.427Z" itemprop="datePublished">2017-05-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/06/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fengleer.github.io/2017/05/06/hello-world/" data-id="cj2dasfip0004pg3n7o29eir4" class="article-share-link">分享</a>
-      
-      
-      
     </footer>
   </div>
   
@@ -268,9 +272,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title categories">分类</h3>
+    <h3 class="widget-title categories">Categorieën</h3>
     <div class="widget" id="categories">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/WEB/">WEB</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/WEB/前端/">前端</a><span class="category-list-count">2</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/WEB/">WEB</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/WEB/前端/">前端</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/嵌入式/">嵌入式</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/嵌入式/开发工具/">开发工具</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -278,18 +282,22 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title tagcloud">标签云</h3>
+    <h3 class="widget-title tagcloud">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CSS/" style="font-size: 14px;">CSS</a> <a href="/tags/HTML/" style="font-size: 14px;">HTML</a> <a href="/tags/JS/" style="font-size: 14px;">JS</a>
+      <a href="/tags/AVR/" style="font-size: 14px;">AVR</a> <a href="/tags/CSS/" style="font-size: 14px;">CSS</a> <a href="/tags/HTML/" style="font-size: 14px;">HTML</a> <a href="/tags/JS/" style="font-size: 14px;">JS</a> <a href="/tags/Raspberry-Pi/" style="font-size: 14px;">Raspberry Pi</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title recent-posts">最新文章</h3>
+    <h3 class="widget-title recent-posts">Recente berichten</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/05/07/使用树莓派做AVR芯片的下载器/">使用树莓派做AVR芯片的下载器</a>
+          </li>
         
           <li>
             <a href="/2017/05/06/JavaScript学习笔记/">JavaScript学习笔记</a>
@@ -299,10 +307,6 @@
             <a href="/2017/05/06/HTML-CSS-学习笔记/">HTML CSS 学习笔记</a>
           </li>
         
-          <li>
-            <a href="/2017/05/06/hello-world/">Hello World</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -310,7 +314,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title archive">归档</h3>
+    <h3 class="widget-title archive">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">3</span></li></ul>
     </div>
@@ -326,10 +330,10 @@
   <div class="outer">
     <div id="footer-left">
       &copy; 2014 - 2017 fengle&nbsp;|&nbsp;
-      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+      Theme by <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
     </div>
      <div id="footer-right">
-      联系方式&nbsp;|&nbsp;youemail@outlook.com
+      Contact&nbsp;|&nbsp;youemail@outlook.com
     </div>
   </div>
 </footer>

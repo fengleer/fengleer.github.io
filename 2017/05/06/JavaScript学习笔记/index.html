@@ -5,19 +5,17 @@
   
   <title>JavaScript学习笔记 | FengLe&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="初始 JavaScript 涉及到的函数  alert() prompt() confirm()   JavaScript 放置的位置  JavaScript 代码可以放置到任何地方，但仍有通用的模式   123456789&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;    ... load JavaScript libraries here ...&amp;">
+  <meta name="description" content="JavaScript 涉及到的函数  alert() prompt() confirm()   JavaScript 放置的位置  JavaScript 代码可以放置到任何地方，但仍有通用的模式   123456789&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;    ... load JavaScript libraries here ...&amp;lt;">
 <meta name="keywords" content="JS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript学习笔记">
 <meta property="og:url" content="http://fengleer.github.io/2017/05/06/JavaScript学习笔记/index.html">
 <meta property="og:site_name" content="FengLe&#39;s Blog">
-<meta property="og:description" content="初始 JavaScript 涉及到的函数  alert() prompt() confirm()   JavaScript 放置的位置  JavaScript 代码可以放置到任何地方，但仍有通用的模式   123456789&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;    ... load JavaScript libraries here ...&amp;">
-<meta property="og:image" content="http://fengleer.github.io/2017/05/06/JavaScript学习笔记/dom_basic.png">
-<meta property="og:updated_time" content="2017-05-06T13:27:10.185Z">
+<meta property="og:description" content="JavaScript 涉及到的函数  alert() prompt() confirm()   JavaScript 放置的位置  JavaScript 代码可以放置到任何地方，但仍有通用的模式   123456789&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;    ... load JavaScript libraries here ...&amp;lt;">
+<meta property="og:updated_time" content="2017-05-07T10:16:23.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript学习笔记">
-<meta name="twitter:description" content="初始 JavaScript 涉及到的函数  alert() prompt() confirm()   JavaScript 放置的位置  JavaScript 代码可以放置到任何地方，但仍有通用的模式   123456789&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;    ... load JavaScript libraries here ...&amp;">
-<meta name="twitter:image" content="http://fengleer.github.io/2017/05/06/JavaScript学习笔记/dom_basic.png">
+<meta name="twitter:description" content="JavaScript 涉及到的函数  alert() prompt() confirm()   JavaScript 放置的位置  JavaScript 代码可以放置到任何地方，但仍有通用的模式   123456789&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;    ... load JavaScript libraries here ...&amp;lt;">
   
     <link rel="alternate" href="/atom.xml" title="FengLe&#39;s Blog" type="application/atom+xml">
   
@@ -44,7 +42,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://fengleer.github.io"></form>
@@ -96,7 +94,7 @@
       
         <!-- Table of Contents -->
         
-        <h2 id="初始-JavaScript"><a href="#初始-JavaScript" class="headerlink" title="初始 JavaScript"></a>初始 JavaScript</h2><ul>
+        <h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><ul>
 <li><p>涉及到的函数</p>
 <ul>
 <li>alert()</li>
@@ -107,6 +105,9 @@
 <li><p>JavaScript 放置的位置<br>  JavaScript 代码可以放置到任何地方，但仍有通用的模式</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    ... load JavaScript libraries here ...</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    ... your JavaScript code typically goes at the end of body ...</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
 </li>
+</ul>
+<a id="more"></a>
+<ul>
 <li><p>JavaScript 在同一文件中</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">function surprise() &#123;</div><div class="line">    alert(&quot;Hello!&quot;);</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
 </li>
@@ -115,9 +116,6 @@
 <p>  在 mycode.js :</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function surprise() &#123;</div><div class="line">    alert(&quot;Hello!&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-</ul>
-<a id="more"></a>
-<ul>
 <li><p>简单交互</p>
 <p>  这里有3个 JavaScript 弹出窗口</p>
 <ul>
@@ -376,14 +374,13 @@
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function map(theArray, fn) &#123;</div><div class="line">    var results = [];</div><div class="line">    for(var i = 0; i &lt; theArray.length; i++) &#123;</div><div class="line">        results.push(fn(theArray[i], i, theArray));</div><div class="line">    &#125;</div><div class="line">    return results;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>  示例</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">        var square = function(e1) &#123; return e1 * e1; )</div><div class="line">        var numbers = [1, 2, 3, 4, 5];</div><div class="line">        var results = numbers.map(square);</div><div class="line">        alert(results); //This shows [1, 4, 9, 16, 25];</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<p>  <img src="dom_basic.png" alt="dom_basic"></p>
 </li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengleer.github.io/2017/05/06/JavaScript学习笔记/" data-id="cj2dasfie0001pg3nkzu564h3" class="article-share-link">分享</a>
+      <a data-url="http://fengleer.github.io/2017/05/06/JavaScript学习笔记/" data-id="cj2eli25n00017tcz42vr4rbg" class="article-share-link">Delen</a>
       
       
       
@@ -395,9 +392,18 @@
     
 <nav id="article-nav">
   
+    <a href="/2017/05/07/使用树莓派做AVR芯片的下载器/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nieuwer</strong>
+      <div class="article-nav-title">
+        
+          使用树莓派做AVR芯片的下载器
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/05/06/HTML-CSS-学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
+      <strong class="article-nav-caption">Ouder</strong>
       <div class="article-nav-title">HTML CSS 学习笔记</div>
     </a>
   
@@ -431,7 +437,7 @@
       
         <strong class="toc-title">文章目录</strong>
         <div class="toc-widget-list">
-              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#初始-JavaScript"><span class="toc-number">1.</span> <span class="toc-text">初始 JavaScript</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量"><span class="toc-number">2.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件和函数"><span class="toc-number">3.</span> <span class="toc-text">事件和函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择"><span class="toc-number">4.</span> <span class="toc-text">选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#while-循环"><span class="toc-number">5.</span> <span class="toc-text">while 循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全局变量与局部变量"><span class="toc-number">6.</span> <span class="toc-text">全局变量与局部变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#逻辑运算"><span class="toc-number">7.</span> <span class="toc-text">逻辑运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组"><span class="toc-number">8.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#随机数"><span class="toc-number">9.</span> <span class="toc-text">随机数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例项目"><span class="toc-number">10.</span> <span class="toc-text">示例项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#for-循环"><span class="toc-number">11.</span> <span class="toc-text">for 循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#循环控制"><span class="toc-number">12.</span> <span class="toc-text">循环控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更多数组相关函数"><span class="toc-number">13.</span> <span class="toc-text">更多数组相关函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数数组"><span class="toc-number">14.</span> <span class="toc-text">函数数组</span></a></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript"><span class="toc-number">1.</span> <span class="toc-text">JavaScript</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量"><span class="toc-number">2.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件和函数"><span class="toc-number">3.</span> <span class="toc-text">事件和函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择"><span class="toc-number">4.</span> <span class="toc-text">选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#while-循环"><span class="toc-number">5.</span> <span class="toc-text">while 循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全局变量与局部变量"><span class="toc-number">6.</span> <span class="toc-text">全局变量与局部变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#逻辑运算"><span class="toc-number">7.</span> <span class="toc-text">逻辑运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组"><span class="toc-number">8.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#随机数"><span class="toc-number">9.</span> <span class="toc-text">随机数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例项目"><span class="toc-number">10.</span> <span class="toc-text">示例项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#for-循环"><span class="toc-number">11.</span> <span class="toc-text">for 循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#循环控制"><span class="toc-number">12.</span> <span class="toc-text">循环控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更多数组相关函数"><span class="toc-number">13.</span> <span class="toc-text">更多数组相关函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数数组"><span class="toc-number">14.</span> <span class="toc-text">函数数组</span></a></li></ol>
           </div>
       </div>
     </div>
@@ -455,10 +461,10 @@
   <div class="outer">
     <div id="footer-left">
       &copy; 2014 - 2017 fengle&nbsp;|&nbsp;
-      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+      Theme by <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
     </div>
      <div id="footer-right">
-      联系方式&nbsp;|&nbsp;youemail@outlook.com
+      Contact&nbsp;|&nbsp;youemail@outlook.com
     </div>
   </div>
 </footer>
